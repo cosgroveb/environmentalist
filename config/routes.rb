@@ -2,6 +2,7 @@ Environmentalist::Application.routes.draw do
   resources :environments do
     member do
       post 'reserve'
+      post 'release'
     end
   end
   root :to => 'environments#index'

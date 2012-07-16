@@ -101,4 +101,32 @@ describe EnvironmentsController do
       end
     end
   end
+
+  describe "POST 'release'" do
+    it "releases an environment" do
+      environment = FactoryGirl.create(:environment, :reserved_by => Faker::Name.name)
+      post 'release', :id => environment
+
+      environment.reload.reserved_by.should be_blank
+    end
+
+    context "html" do
+      it "redirects to environments" do
+        environment = FactoryGirl.create(:environment, :reserved_by => Faker::Name.name)
+        post 'release', :id => environment
+
+        response.should redirect_to(environments_url)
+      end
+    end
+
+    context "json" do
+      it "renders json" do
+        environment = FactoryGirl.create(:environment, :reserved_by => Faker::Name.name)
+        post 'release', :format => :json, :id => environment
+
+        response.should be_success
+        response.header['Content-Type'].should include 'application/json'
+      end
+    end
+  end
 end
