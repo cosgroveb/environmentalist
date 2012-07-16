@@ -19,11 +19,13 @@ describe Environment do
   end
 
   describe "validations" do
-    it "must have a name" do
-      environment = FactoryGirl.build(:environment, :name => nil)
+    context "on create" do
+      it "must have a name" do
+        environment = FactoryGirl.build(:environment, :name => nil)
 
-      environment.should_not be_valid
-      environment.errors[:name].should == ["can't be blank"]
+        environment.should_not be_valid
+        environment.errors[:name].should == ["can't be blank"]
+      end
     end
   end
 end

@@ -30,4 +30,16 @@ class EnvironmentsController < ApplicationController
       format.json { render :json => environment }
     end
   end
+
+  def reserve
+    environment = Environment.find(params[:id])
+
+    environment.update_attributes(:reserved_by => params[:environment][:reserved_by])
+
+    respond_to do |format|
+      format.html { redirect_to environments_url }
+      format.json { render :json => environment }
+    end
+  end
+
 end

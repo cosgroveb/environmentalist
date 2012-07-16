@@ -1,5 +1,5 @@
 class Environment < ActiveRecord::Base
-  attr_accessible :name
+  attr_accessible :name, :reserved_by
   validates_presence_of :name, :on => :create
 
   def as_json(options={})

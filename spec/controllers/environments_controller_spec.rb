@@ -71,4 +71,34 @@ describe EnvironmentsController do
     end
   end
 
+  describe "POST 'reserve'" do
+    it "reserves an environment" do
+      environment = FactoryGirl.create(:environment)
+      reserved_by = Faker::Name.name
+      post 'reserve', :id => environment, :environment => { :reserved_by => reserved_by }
+
+      environment.reload.reserved_by.should == reserved_by
+    end
+
+    context "html" do
+      it "redirects to environments" do
+        environment = FactoryGirl.create(:environment)
+        reserved_by = Faker::Name.name
+        post 'reserve', :id => environment, :environment => { :reserved_by => reserved_by }
+
+        response.should redirect_to(environments_url)
+      end
+    end
+
+    context "json" do
+      it "renders json" do
+        environment = FactoryGirl.create(:environment)
+        reserved_by = Faker::Name.name
+        post 'reserve', :format => :json,  :id => environment, :environment => { :reserved_by => reserved_by }
+
+        response.should be_success
+        response.header['Content-Type'].should include 'application/json'
+      end
+    end
+  end
 end

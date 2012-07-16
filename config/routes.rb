@@ -1,5 +1,9 @@
 Environmentalist::Application.routes.draw do
-  resources :environments
+  resources :environments do
+    member do
+      post 'reserve'
+    end
+  end
   root :to => 'environments#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
