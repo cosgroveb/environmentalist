@@ -1,0 +1,14 @@
+<%= form_for @environment do |f| %>
+  <fieldset>
+    <legend>New Environment</legend>
+    <div>
+      <%= f.label :name, 'Name' %>
+      <div>
+        <%= f.text_field :name%>
+      </div>
+    </div>
+    <div>
+      <%= f.submit %>
+    </div>
+  </fieldset>
+<% end %>
