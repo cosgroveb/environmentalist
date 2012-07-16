@@ -39,4 +39,19 @@ describe EnvironmentsController do
     end
   end
 
+  describe "GET 'index'" do
+    it "exposes environments" do
+      get 'index'
+
+      response.should be_success
+      assigns(:environments).should_not be_nil
+    end
+
+    it "renders json" do
+      get :index, :format => :json
+
+      response.header['Content-Type'].should include 'application/json'
+    end
+  end
+
 end
