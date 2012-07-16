@@ -1,0 +1,10 @@
+development:
+  adapter: postgresql
+  database: environmentalist
+  port: 5433
+
+test:
+  adapter: postgresql
+  database: environmentalist_test
+  host: localhost
+  port: 5433
