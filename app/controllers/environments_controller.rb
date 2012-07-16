@@ -21,4 +21,13 @@ class EnvironmentsController < ApplicationController
       format.json { render :json => @environments }
     end
   end
+
+  def show
+    environment = Environment.find(params[:id])
+
+    respond_to do |format|
+      format.html { redirect_to environments_url}
+      format.json { render :json => environment }
+    end
+  end
 end

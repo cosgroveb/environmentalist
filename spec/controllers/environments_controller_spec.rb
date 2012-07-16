@@ -54,4 +54,21 @@ describe EnvironmentsController do
     end
   end
 
+  describe "GET 'show'" do
+    it "redirects to environments" do
+      environment = FactoryGirl.create(:environment)
+      get 'show', :id => environment
+
+      response.should redirect_to(environments_url)
+    end
+
+    it "responds to json" do
+      environment = FactoryGirl.create(:environment)
+      get 'show', :format => :json, :id => environment
+
+      response.should be_success
+      response.header['Content-Type'].should include 'application/json'
+    end
+  end
+
 end
