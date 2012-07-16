@@ -5,6 +5,7 @@ class Environment < ActiveRecord::Base
   def as_json(options={})
     {
       :name => name,
+      :reserved_by => reserved_by.blank? ? ' ' : reserved_by,
       :updated_at => updated_at
     }
   end

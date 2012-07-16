@@ -2,10 +2,11 @@ require 'spec_helper'
 
 describe Environment do
   describe "as_json" do
-    it "has name and updated_at" do
+    it "has name, reserved_by, and updated_at" do
       environment = FactoryGirl.create(:environment, :name => "qa")
 
       environment.as_json.should have_key(:name)
+      environment.as_json.should have_key(:reserved_by)
       environment.as_json.should have_key(:updated_at)
     end
   end
