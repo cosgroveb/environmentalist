@@ -1,14 +1,14 @@
-<%= form_for @environment do |f| %>
+<%= form_for @environment, {:html => {:class => "form-horizontal"}} do |f| %>
   <fieldset>
     <legend>New Environment</legend>
-    <div>
-      <%= f.label :name, 'Name' %>
-      <div>
+    <div class="control-group">
+      <%= f.label :name, 'Name', :class => "control-label" %>
+      <div class="controls">
         <%= f.text_field :name%>
       </div>
     </div>
-    <div>
-      <%= f.submit %>
+    <div class="form-actions">
+      <%= f.submit :class => "btn btn-primary" %>
     </div>
   </fieldset>
 <% end %>
