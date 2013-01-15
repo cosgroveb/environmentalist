@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
+gem 'therubyracer', '0.11.2'
 
 gem 'pg'
 
