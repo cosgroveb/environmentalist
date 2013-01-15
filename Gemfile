@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 gem 'therubyracer', '0.11.2'
+gem 'less-rails', '2.2.6'
 
 gem 'pg'
 
@@ -20,5 +21,5 @@ group :development, :test do
 end
 
 gem 'jquery-rails'
-gem "twitter-bootstrap-rails"
+gem "twitter-bootstrap-rails", '2.2.0'
 
