@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '3.2.12'
 gem 'therubyracer', '0.11.2'
 gem 'less-rails', '2.2.6'
 
