@@ -20,6 +20,10 @@ group :development, :test do
   gem 'faker'
 end
 
+group :production do
+  gem 'unicorn', '4.1.1'
+end
+
 gem 'jquery-rails'
 gem "twitter-bootstrap-rails", '2.2.0'
 
